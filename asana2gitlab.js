@@ -64,7 +64,7 @@ function createIssueFromJSON(file) {
               method: 'post',
               body: JSON.stringify({
                 // ASANA
-                target_project_id: projectId,
+                target_project_id: PROJECT_ID,
                 target_issue_iid: subIssueIid
               }),
               headers: {'Content-Type': 'application/json', 'PRIVATE-TOKEN': `${process.env.TOKEN}`}
@@ -83,7 +83,7 @@ function createIssueFromJSON(file) {
 function createLabel(file) {
   let count = 1;
   Object.values(file.labelNames).forEach(label => {
-    fetch(`https://gitlab.asoft-python.com/api/v4/projects/${projectId}/labels`, {
+    fetch(`https://gitlab.asoft-python.com/api/v4/projects/${PROJECT_ID}/labels`, {
       method: 'post',
       body: JSON.stringify({
         id: count,
